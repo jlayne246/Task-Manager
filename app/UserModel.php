@@ -1,6 +1,11 @@
 <?php
     // require_once "framework/Model.php";
     class UserModel extends Model {
+        private $userid;
+        private $email;
+        private $password; 
+        private $username;
+
         // Create a user
         public function registerUser($email, $username, $password) {
             $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
@@ -13,6 +18,7 @@
             return $stmt->execute();
         }
 
+        // Find user based on email and password
         public function loginUser($email, $password) {
             $sql = "SELECT user_id, password FROM users WHERE email = ?";
             $stmt = $this->db->prepare($sql);
