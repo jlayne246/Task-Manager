@@ -22,7 +22,7 @@
                 }
             }
 
-            if ((preg_match('/[A-Z]/', $password)) && (preg_match('/[^a-zA-Z0-9]/', $password))) {
+            if ((preg_match('/[A-Z]/', $password)) && (preg_match('/[a-z]/', $password)) && (preg_match('/[^a-zA-Z0-9]/', $password))) {
                 $count += rand(1,6);
             }
 
