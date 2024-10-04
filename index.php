@@ -1,6 +1,6 @@
 <?php
     require_once 'autoloader.php';
-    require_once './app/router/web.php';
+    require_once './framework/router/web.php';
 
     
     // $controllerInstance = new HomeController();

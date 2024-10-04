@@ -1,6 +1,6 @@
 <?php
     function my_autoloader($class) {
-        $directories = array('app', 'app/validator', 'framework', 'app/auth');
+        $directories = array('app', 'framework/validator', 'framework', 'framework/auth');
         foreach ($directories as $dir) {
             $path = $dir . '/' . str_replace('\\', '/', $class) . '.php';
             if (file_exists($path)) {
