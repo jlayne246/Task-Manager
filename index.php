@@ -2,9 +2,13 @@
     require_once 'autoloader.php';
     require_once './framework/router/web.php';
 
-    SessionManager::start();
+    // SessionManager::start();
     // $controllerInstance = new HomeController();
     // $controllerInstance->index();
+
+    if (!isset($_COOKIE['logged_out'])) {
+        SessionManager::start();
+    }
 
     define('APP_ROOT_DIR', 'comp3385/assignment1/400014516'); // MADE EDIT HERE; RETURN THE 2ND PARAM TO: ''
     $separators = ['/', '\\'];

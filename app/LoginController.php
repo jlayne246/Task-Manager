@@ -2,6 +2,8 @@
     // require_once 'UserModel.php';
     class LoginController extends Controller {
         public function index() {
+            SessionManager::start();
+
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $email = $_POST['email'];
                 $password = $_POST['password'];
@@ -16,7 +18,8 @@
                     $role = $position->retrieveUserRole($id);
                     // print($id . $role);
                     SessionManager::setUser($id, $role, true);
-                    SessionManager::set('role', $role);
+                    // SessionManager::set('role', $role);
+                    setcookie("logged_out", "", time() - 3600, "/");
 
                     header("Location: ./{$role}");
                     exit();
