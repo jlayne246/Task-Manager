@@ -11,7 +11,7 @@
                 setcookie(session_name(),"", time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
             }
 
-            setcookie("logged_out", "true", time() + 60, "/");
+            setcookie("logged_out", "true", 0, "/");
 
             header('Location: ./');
             exit;
