@@ -13,8 +13,10 @@
 
                 if ($validator->passwordStrength($password)) {
                     $user = new UserModel();
+                    $position = new UserRoleModel();
 
                     if ($user->registerUser($email, $username, $password)) {
+                        $position->assignRole($email, "employee");
                         header('Location: ./login');
                         exit();
                         // print("User added");

@@ -11,8 +11,14 @@
         <nav>
             <ul>
                 <li><a href="./">Home</a></li>
-                <li><a href="./login">Login</a></li>
-                <li><a href="./register">Register</a></li>
+                <?php if (isset($_SESSION['authstatus']) && $_SESSION['authstatus'] === true): ?>
+                    <li><a href=<?php "./{$_SESSION['role']}"?>>Dashboard</a></li>
+                    <li><a href="./tasks">Tasks</a></li>
+                    <li><a href="./logout">Logout</a></li>
+                <?php else: ?>
+                    <li><a href="./login">Login</a></li>
+                    <li><a href="./register">Register</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>

@@ -2,7 +2,7 @@
     require_once 'autoloader.php';
     require_once './framework/router/web.php';
 
-    
+    SessionManager::start();
     // $controllerInstance = new HomeController();
     // $controllerInstance->index();
 

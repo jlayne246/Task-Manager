@@ -14,6 +14,13 @@
             return $_SESSION[$key] ?? null;
         }
 
+        public static function setUser($userid, $role, $auth) {
+            $_SESSION['user'] = $userid;
+            $_SESSION['role'] = $role;
+            $_SESSION['authstatus'] = $auth;
+            print($userid . $role . $auth);
+        }
+
         public static function destroy() {
             session_destroy();
         }
