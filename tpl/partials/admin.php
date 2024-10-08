@@ -30,7 +30,29 @@ if ($_SESSION['role'] === 'admin'): ?>
                 </div>
                 <div class="users col-5 col-m-5">
                     <h1>Users</h1>
-                    <div class="createUser"></div>
+                    <div class="createUser">
+                        <div class="view-btn-mode">
+                            <button type="button" class="create-btn" onclick="toggleCreateMode();">Create</button>
+                        </div>
+                        <div class="create-mode">
+                            <form method="post" action="./createuser" style="display:inline;">
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" placeholder="Enter your email address" required>
+                                <label for="username">Username:</label>
+                                <input type="text" name="username" placeholder="Enter a username" required>
+                                <label for="role">Role:</label>
+                                <select name="role" id="role">
+                                    <?php foreach ($data['roles'] as $role): ?>
+                                        <option value="<?php echo $role; ?>">
+                                            <?php echo $role;?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <input type="submit" value="Submit">
+                                <input type="button" value="Close" onclick="toggleCreateMode();">
+                            </form>
+                        </div>
+                    </div>
                     <div class="users-con">
                         <!-- <div class="user-header"> -->
                             <div class="user-box user-header"> ID# </div>
@@ -43,8 +65,8 @@ if ($_SESSION['role'] === 'admin'): ?>
                             <!-- <div class="user-row"> -->
                                 <div class="user-box"><?php echo $item['user_id']; ?> </div>
                                 <div class="user-box"><?php echo $item['username']; ?> </div>
-                                <div class="user-box">
-                                    <div class="view-mode">
+                                <div class="user-box" data-user-id="<?php echo $item['user_id']; ?>">
+                                    <div class="view-mode" data-user-id="<?php echo $item['user_id']; ?>">
                                         <?php
                                             switch ($item['role_id']) {
                                                 case 1:
@@ -65,7 +87,7 @@ if ($_SESSION['role'] === 'admin'): ?>
                                             }
                                         ?>
                                     </div>
-                                    <div class="edit-mode">
+                                    <div class="edit-mode" data-user-id="<?php echo $item['user_id']; ?>">
                                         <form method="POST" action="./editrole" style="display: inline;">
                                             <input type="hidden" name="user" value="<?=$item['user_id']?>"/>
                                             <select name="role" id="role">
@@ -78,14 +100,14 @@ if ($_SESSION['role'] === 'admin'): ?>
                                         </div>
                                         <!-- </form> -->
                                     </div>
-                                <div class="user-box">
-                                    <a href="javascript:void(0);" class="view-mode" onclick="toggleEditMode()">Edit</a>
-                                    <div class="edit-mode"><button type="submit">Save</button></div>
+                                <div class="user-box" data-user-id="<?php echo $item['user_id']; ?>">
+                                    <a href="javascript:void(0);" class="view-mode" data-user-id="<?php echo $item['user_id']; ?>" onclick="toggleEditMode(<?php echo $item['user_id']; ?>)">Edit</a>
+                                    <div class="edit-mode" data-user-id="<?php echo $item['user_id']; ?>"><button type="submit">Save</button></div>
                                 </div>
-                                <div class="user-box">
-                                    <a href="./delete?=" <?=$item['user_id']?> class="view-mode">Delete</a>
-                                    <div class="edit-mode">
-                                        <button type="button" onclick="toggleEditMode()">Close</button>
+                                <div class="user-box" data-user-id="<?php echo $item['user_id']; ?>">
+                                    <a href="./deleteuser?id=<?=$item['user_id']?>" class="view-mode" data-user-id="<?php echo $item['user_id']; ?>">Delete</a>
+                                    <div class="edit-mode" data-user-id="<?php echo $item['user_id']; ?>">
+                                        <button type="button" onclick="toggleEditMode(<?php echo $item['user_id']; ?>)">Close</button>
                                     </div>
                                 </div>
                                 </form>

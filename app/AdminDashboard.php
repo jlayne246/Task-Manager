@@ -20,7 +20,23 @@
             $this->handleRequest("admin", isset($data) ? $data : []);
         }
 
-        public function create() {}
+        public function create() {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $userModel = new UserModel();
+                $userRoles = new UserRoleModel();
+                $roles = $userRoles->returnRolesArray();
+
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $role = $_POST['role'];
+
+                // $roleid = array_search($role, $roles);
+                $userModel->createUser($email, $username);
+                $userRoles->assignRole($email, $role);
+
+                header('Location: ./admin');
+            }
+        }
 
         public function update() {
             // print($_SERVER['REQUEST_METHOD']);
@@ -40,7 +56,20 @@
                 header('Location: ./admin');
             }
 
-            return $role;
+            // return $role;
+        }
+
+        public function delete() {
+            if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+                header("HTTP/1.0 400 Bad Request");
+                return;
+            }
+
+            $id = $_GET["id"];
+            $userModel = new UserModel();
+
+            $userModel->deleteUser($id);
+            header('Location: ./admin');
         }
 
         // public function displayUsers() {

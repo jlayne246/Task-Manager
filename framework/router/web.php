@@ -19,6 +19,8 @@ $routes['/login'] = ['controller' => 'LoginController', 'method' => 'index', 'ht
 $routes['/logout'] = ['controller' => 'LogoutController', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/admin'] = ['controller' => 'AdminDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/editrole'] = ['controller' => 'AdminDashboard', 'method' => 'update', 'httpMethod' => 'POST'];
+$routes['/deleteuser'] = ['controller' => 'AdminDashboard', 'method' => 'delete', 'httpMethod' => 'GET'];
+$routes['/createuser'] = ['controller' => 'AdminDashboard', 'method' => 'create', 'httpMethod' => 'POST'];
 $routes['/manager'] = ['controller' => 'ManagerDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/employee'] = ['controller' => 'EmployeeDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/tasks'] = ['controller' => 'TaskManager', 'method' => 'index', 'httpMethod' => 'GET'];

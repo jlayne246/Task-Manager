@@ -6,7 +6,7 @@
         private $password; 
         private $username;
 
-        // Create a user
+        // Create a user from register
         public function registerUser($email, $username, $password) {
             $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 
@@ -18,7 +18,18 @@
             return $stmt->execute();
         }
 
-        // Create a user
+        // Create a user from admin
+        public function createUser($email, $username) {
+            $passwordHashed = password_hash("temp", PASSWORD_DEFAULT);
+
+            $sql1 = "INSERT INTO users(email, username, password) VALUES (?, ?, ?)";
+            $stmt = $this->db->prepare($sql1);
+            $stmt->bind_param("sss", $email, $username, $passwordHashed);
+
+            return $stmt->execute();
+        }
+
+        // Update a user role
         public function updateUser($userid, $role) {
             $positions = new UserRoleModel();
             $roles = $positions->returnRolesArray();
@@ -65,6 +76,22 @@
             }
 
             return $users;
+        }
+
+        public function deleteUser($id) {
+            // Delete from userrole table
+            $sql1 = "DELETE FROM userrole WHERE user_id = ?";
+            $stmt1 = $this->db->prepare($sql1);
+            $stmt1->bind_param("i", $id);
+            $stmt1->execute();
+        
+            // Delete from users table
+            $sql2 = "DELETE FROM users WHERE user_id = ?";
+            $stmt2 = $this->db->prepare($sql2);
+            $stmt2->bind_param("i", $id);
+            $result = $stmt2->execute();
+        
+            return $result;
         }
     }
 ?>
