@@ -6,7 +6,10 @@
         // private $model = new Model();
 
         public function assignRole($email, $role) {
-            $userRole = $this->roles[$role];
+            $this->getRoles();
+            // print(array_search($role, $this->roles));
+
+            $userRole = array_search($role, $this->roles);
             $userid = $this->retrieveUserID($email);
 
             $sql = "INSERT INTO userrole(user_id, role_id) VALUES (?, ?)";
@@ -57,6 +60,11 @@
             } else {
                 echo "No records found.";
             }
+        }
+
+        public function returnRolesArray() {
+            $this->getRoles();
+            return $this->roles;
         }
     }
 ?>

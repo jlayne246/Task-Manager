@@ -18,8 +18,10 @@ $routes['/register'] = ['controller' => 'RegisterController', 'method' => 'index
 $routes['/login'] = ['controller' => 'LoginController', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/logout'] = ['controller' => 'LogoutController', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/admin'] = ['controller' => 'AdminDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
+$routes['/editrole'] = ['controller' => 'AdminDashboard', 'method' => 'update', 'httpMethod' => 'POST'];
 $routes['/manager'] = ['controller' => 'ManagerDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/employee'] = ['controller' => 'EmployeeDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
+$routes['/tasks'] = ['controller' => 'TaskManager', 'method' => 'index', 'httpMethod' => 'GET'];
 
 //Route function to handle requests
 function route($path) {
