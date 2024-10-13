@@ -44,7 +44,7 @@
             return $stmt->execute();
         }
 
-        // Find user based on email and password
+        // Find user based on email and password and verify login
         public function loginUser($email, $password) {
             $sql = "SELECT user_id, password FROM users WHERE email = ?";
             $stmt = $this->db->prepare($sql);
@@ -58,6 +58,23 @@
                 if (password_verify($password, $passwordHash)) {
                     return $userid;
                 }
+            }
+
+            return false;
+        }
+
+        // Find user based on email and password
+        public function findUser($email, $password) {
+            $sql = "SELECT user_id, password FROM users WHERE email = ?";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+
+            //echo json_encode($stmt->get_result());
+
+            //$stmt->bind_result($userid);
+            if ($stmt->fetch()) {
+                return true;
             }
 
             return false;

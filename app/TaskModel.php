@@ -63,6 +63,44 @@
             return $tasks;
         }
 
+        public function getTasksByManager($manager_id) {
+            $sql = "SELECT task_id, title, description, status, assigned_to, created_by, due_date FROM tasks WHERE created_by = ?";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("i", $manager_id);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+
+            $tasks = [];
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $tasks[] = $row;
+                }
+            }
+
+            return $tasks;
+        }
+
+        public function getTaskByID($task_id) {
+            $sql = "SELECT task_id, title, description, status, assigned_to, created_by, due_date FROM tasks WHERE task_id = ?";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("i", $task_id);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+
+            $tasks = [];
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $tasks[] = $row;
+                }
+            }
+
+            return $tasks;
+        }
+
         public function updateTask($userID, $task_id, $status) {
             $sql = "UPDATE tasks SET status = ? WHERE task_id = ? AND assigned_to = ?;";
             $stmt = $this->db->prepare($sql);

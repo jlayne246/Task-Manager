@@ -14,14 +14,16 @@ $routes = [];
 $routes['/'] = ['controller' => 'HomeController', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/home'] = ['controller' => 'HomeController', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/register'] = ['controller' => 'RegisterController', 'method' => 'index', 'httpMethod' => 'GET'];
-// $routes['/registerUser'] = ['controller' => 'RegisterController', 'method' => 'index', 'httpMethod' => 'POST'];
+
 $routes['/login'] = ['controller' => 'LoginController', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/logout'] = ['controller' => 'LogoutController', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/admin'] = ['controller' => 'AdminDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/editrole'] = ['controller' => 'AdminDashboard', 'method' => 'update', 'httpMethod' => 'POST'];
 $routes['/deleteuser'] = ['controller' => 'AdminDashboard', 'method' => 'delete', 'httpMethod' => 'GET'];
 $routes['/createuser'] = ['controller' => 'AdminDashboard', 'method' => 'create', 'httpMethod' => 'POST'];
+
 $routes['/manager'] = ['controller' => 'ManagerDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
+$routes['/view-task'] = ['controller'=> 'ViewEditTasks', 'method' => 'index', 'httpMethod' => 'GET'];
 
 $routes['/employee'] = ['controller' => 'EmployeeDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/update-progress'] = ['controller' => 'EmployeeDashboard', 'method' => 'update', 'httpMethod' => 'POST'];
