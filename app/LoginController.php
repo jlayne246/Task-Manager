@@ -11,21 +11,32 @@
                 $user = new UserModel();
                 $position = new UserRoleModel();
 
-                // Check to see if the user exists
-                if ($user->loginUser($email, $password) != false) {
-                    $id = $position->retrieveUserID($email);
-                    // print($id);
-                    $role = $position->retrieveUserRole($id);
-                    // print($id . $role);
-                    SessionManager::setUser($id, $role, true);
-                    // SessionManager::set('role', $role);
-                    setcookie("logged_out", "", time() - 3600, "/");
+                $validator = new Validator();
 
-                    header("Location: ./{$role}");
-                    exit();
+                $validate = $validator->validateLogin($email, $password);
+
+                if ($validate['value'] !== true) {
+                    // Check to see if the user exists
+                    if ($user->loginUser($email, $password) != false) {
+                        $id = $position->retrieveUserID($email);
+                        // print($id);
+                        $role = $position->retrieveUserRole($id);
+                        // print($id . $role);
+                        SessionManager::setUser($id, $role, true);
+                        // SessionManager::set('role', $role);
+                        setcookie("logged_out", "", time() - 3600, "/");
+
+                        header("Location: ./{$role}");
+                        exit();
+                    } else {
+                        SessionManager::destroy();
+                        $data['error'] = "Login failed. Try again.";
+                    }
                 } else {
-                    SessionManager::destroy();
-                    $data['error'] = "Login failed. Try again.";
+                    $data["error"] = $validate['errors'];
+                    $this->handleRequest("register", isset($data) ? $data : []);
+                    $data['error'] = [];
+                    exit();
                 }
             }
 

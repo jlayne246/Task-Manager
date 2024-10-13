@@ -1,7 +1,19 @@
 <main class="content">
-    <?php if (isset($error)): ?>
+    <!-- <?php if (isset($error)): ?>
         <p style="color:red;"><?php echo $error; ?></p>
-    <?php endif; ?>
+    <?php endif; ?> -->
+
+    <div id="errors" style="color: red;">
+        <?php
+            if (isset($data['error'])) {
+                foreach ($data['error'] as $error) {
+                    echo $error . " <br> ";
+                }
+
+                $data['errors'] = [];
+            } 
+        ?>
+    </div>
 
     <form method="POST">
         <label for="email">Email:</label>

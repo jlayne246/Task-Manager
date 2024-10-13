@@ -64,7 +64,7 @@
         }
 
         // Find user based on email and password
-        public function findUser($email, $password) {
+        public function findUser($email) {
             $sql = "SELECT user_id, password FROM users WHERE email = ?";
             $stmt = $this->db->prepare($sql);
             $stmt->bind_param("s", $email);

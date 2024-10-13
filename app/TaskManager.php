@@ -18,10 +18,24 @@
                 $date = $_POST['date'];
                 $manager = $_POST['manager_id'];
 
-                $taskModel = new TaskModel();
-                $taskModel->createTask($title, $description, $employee, $manager, $date);
+                $validator = new Validator();
+                $validate = $validator->validateTask($title, $date);
 
-                header('Location: ./manager');
+                if ($validate['value']) {
+                    $taskModel = new TaskModel();
+                    $taskModel->createTask($title, $description, $employee, $manager, $date);
+                    header('Location: ./manager');
+                } else {
+                    $userModel = new UserModel();
+                    $taskModel = new TaskModel();
+
+                    $data['statuses'] = $taskModel->getStatuses();
+                    $data['employees'] = $userModel->getAllEmployees();
+                    $data["error"] = $validate['errors'];
+                    $this->handleRequest("create_task", isset($data) ? $data : []);
+                    $data['error'] = [];
+                    exit();
+                }
             }
         }
     }
