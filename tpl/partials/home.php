@@ -1,3 +1,3 @@
 <main>
-    <p>Welcome to the home page.</p>
+    <p style="text-align: center;">Welcome to the home page.</p>
 </main>

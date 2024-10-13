@@ -56,11 +56,11 @@ if ($_SESSION['role'] === 'manager'): ?>
 
                                 <select name="assigned" id="assigned">
                                     <?php foreach ($data['employees'] as $employee): ?>
-                                        <optgroup>
+                                        <!-- <optgroup> -->
                                             <option value="<?php echo $employee['user_id']; ?>" <?php if ($employee['user_id'] == $item['assigned_to']) echo 'selected'; ?>>
                                                 <?php echo $employee['user_id'] . " - " . $employee['username'];?>
                                             </option>
-                                        </optgroup>
+                                        <!-- </optgroup> -->
                                     <?php endforeach; ?>
                                 </select>
                             </div>

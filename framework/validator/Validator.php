@@ -66,7 +66,7 @@
                 $value = false;
             }
 
-            if ($this->validEmail($email)) {
+            if (!($this->validEmail($email))) {
                 $errors[] = 'Invalid email format.';
                 $value = false;
             }
@@ -83,7 +83,7 @@
             $errors = [];
             $value = true;
 
-            if ($this->validEmail($email)) {
+            if (!($this->validEmail($email))) {
                 $errors[] = 'Invalid email format.';
                 $value = false;
             }

@@ -23,10 +23,10 @@ if ($_SESSION['role'] === 'employee'): ?>
                             <!-- <div class="user-row"> -->
                                 <div class="tasks-box"><?php echo $item['title']; ?> </div>
                                 <div class="tasks-box"><?php echo $item['description']; ?> </div>
-                                <div class="view-edit-mode">
+                                <div class="view-edit-mode" data-task-id="<?php echo $item['task_id']; ?>">
                                     <div class="tasks-box"><?php echo $item['status']; ?> </div>
                                 </div>
-                                <div class="edit-mode">
+                                <div class="edit-mode" data-task-id="<?php echo $item['task_id']; ?>">
                                     <form method="post" action="./update-progress">
                                         <input type="hidden" name="task" value="<?=$item['task_id']?>"/>
                                         <input type="hidden" name="user" value="<?=$_SESSION["user"]?>"/>
@@ -42,16 +42,16 @@ if ($_SESSION['role'] === 'employee'): ?>
                                 <div class="tasks-box"><?php echo $item['created_by']; ?> </div>
                                 <div class="tasks-box"><?php echo $item['due_date']; ?> </div>
                                 <div class="tasks-box">
-                                    <div class="view-edit-mode">
-                                        <a href="javascript:void(0);" onclick="toggleEditMode_Emp()">Update</a>
+                                    <div class="view-edit-mode" data-task-id="<?php echo $item['task_id']; ?>">
+                                        <a href="javascript:void(0);" onclick="toggleEditMode_Emp(<?php echo $item['task_id']; ?>)">Update</a>
                                     </div>
-                                    <div class="edit-mode">
+                                    <div class="edit-mode" data-task-id="<?php echo $item['task_id']; ?>">
                                             <input type="submit" value="Update" />
-                                            <input type="button" onclick="toggleEditMode_Emp()" value="Cancel" />
+                                            <input type="button" onclick="toggleEditMode_Emp(<?php echo $item['task_id']; ?>)" value="Cancel" />
                                         </form>
                                     </div>
                                 </div>
-                                <div class="view-create-mode">
+                                <div class="view-create-mode" data-task-id="<?php echo $item['task_id']; ?>">
                                     <div class="tasks-box">
                                         <?php
                                             if (array_key_exists($item['task_id'], $data['comments'])) {
@@ -65,18 +65,18 @@ if ($_SESSION['role'] === 'employee'): ?>
                                         ?>
                                     </div>
                                 </div>
-                                <div class="create-mode">
+                                <div class="create-mode" data-task-id="<?php echo $item['task_id']; ?>">
                                     <form method="post" action="./create-comment">
                                         <input type="hidden" name="task" value="<?=$item['task_id']?>"/>
                                         <input type="hidden" name="user" value="<?=$_SESSION["user"]?>"/>
                                         <textarea name="comment"></textarea>
                                 </div>
-                                <div class="view-create-mode">
-                                    <div class="tasks-box"><a href="javascript:void(0);" onclick="toggleCreateMode_Emp()">Add Comment</a> </div>
+                                <div class="view-create-mode" data-task-id="<?php echo $item['task_id']; ?>">
+                                    <div class="tasks-box"><a href="javascript:void(0);" onclick="toggleCreateMode_Emp(<?php echo $item['task_id']; ?>)">Add Comment</a> </div>
                                 </div>
-                                <div class="create-mode">
+                                <div class="create-mode" data-task-id="<?php echo $item['task_id']; ?>">
                                         <input type="submit" value="Comment" />
-                                        <input type="button" onclick="toggleCreateMode_Emp()" value="Cancel" />
+                                        <input type="button" onclick="toggleCreateMode_Emp(<?php echo $item['task_id']; ?>)" value="Cancel" />
                                     </form>
                                 </div>
                             <!-- </div> -->

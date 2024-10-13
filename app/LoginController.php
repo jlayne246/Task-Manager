@@ -10,12 +10,12 @@
 
                 $user = new UserModel();
                 $position = new UserRoleModel();
-
                 $validator = new Validator();
 
-                $validate = $validator->validateLogin($email, $password);
+                $data['error'] = [];
+                $validate = $validator->validateLogin($email, $password);;
 
-                if ($validate['value'] !== true) {
+                if ($validate['value'] === true) {
                     // Check to see if the user exists
                     if ($user->loginUser($email, $password) != false) {
                         $id = $position->retrieveUserID($email);
@@ -30,11 +30,15 @@
                         exit();
                     } else {
                         SessionManager::destroy();
-                        $data['error'] = "Login failed. Try again.";
+                        $data['error'][] = "Login failed. Try again.";
+                        $this->handleRequest("login", isset($data) ? $data : []);
+                        $data['error'] = [];
+                        exit();
                     }
                 } else {
+                    SessionManager::destroy();
                     $data["error"] = $validate['errors'];
-                    $this->handleRequest("register", isset($data) ? $data : []);
+                    $this->handleRequest("login", isset($data) ? $data : []);
                     $data['error'] = [];
                     exit();
                 }

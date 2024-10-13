@@ -200,3 +200,7 @@ label {
 #edit-btn, .form-btns {
     text-align: center;
 }
+
+.errors {
+    text-align: center;
+}

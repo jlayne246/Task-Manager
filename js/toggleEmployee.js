@@ -1,8 +1,11 @@
-function toggleEditMode_Emp(userId) {
+function toggleEditMode_Emp(taskId) {
     console.log("toggle");
     
-    var viewElements = document.getElementsByClassName("view-edit-mode");
-    var editElements = document.getElementsByClassName("edit-mode");
+    // var viewElements = document.getElementsByClassName("view-edit-mode");
+    // var editElements = document.getElementsByClassName("edit-mode");
+
+    var viewElements = document.querySelectorAll('[data-task-id="' + taskId + '"].view-edit-mode');
+    var editElements = document.querySelectorAll('[data-task-id="' + taskId + '"].edit-mode');
 
     for (var i = 0; i < viewElements.length; i++) {
         viewElements[i].style.display = viewElements[i].style.display === "none" ? "block" : "none";
@@ -19,11 +22,14 @@ function toggleEditMode_Emp(userId) {
     }
 }
 
-function toggleCreateMode_Emp() {
+function toggleCreateMode_Emp(taskId) {
     console.log("toggle");
     
-    var viewElements = document.getElementsByClassName("view-create-mode");
-    var createElements = document.getElementsByClassName("create-mode");
+    // var viewElements = document.getElementsByClassName("view-create-mode");
+    // var createElements = document.getElementsByClassName("create-mode");
+
+    var viewElements = document.querySelectorAll('[data-task-id="' + taskId + '"].view-create-mode');
+    var createElements = document.querySelectorAll('[data-task-id="' + taskId + '"].create-mode');
 
     for (var i = 0; i < viewElements.length; i++) {
         viewElements[i].style.display = viewElements[i].style.display === "none" ? "block" : "none";

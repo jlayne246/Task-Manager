@@ -3,7 +3,7 @@
         <p style="color:red;"><?php echo $error; ?></p>
     <?php endif; ?> -->
 
-    <div id="errors" style="color: red;">
+    <div class="errors" style="color: red;">
         <?php
             if (isset($data['error'])) {
                 foreach ($data['error'] as $error) {
