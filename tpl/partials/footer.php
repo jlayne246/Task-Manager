@@ -1,7 +1,5 @@
     <footer>
-        <p>&copy; <?= date('Y') ?></p>
-        <?php print("Auth: " . SessionManager::get('role')); ?>
-        <?php print("Auth: " . session_status()); ?>
+        <p style="text-align: center;">&copy; Joshua Layne - 400014516, for the University of the West Indies <?= date('Y') ?></p>
     </footer>
 </body>
 </html>

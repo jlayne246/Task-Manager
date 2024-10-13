@@ -16,12 +16,18 @@
     </div>
 
     <form method="POST">
-        <label for="email">Email:</label>
-        <input type="email" name="email" placeholder="Enter your email address" required>
-        <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="Enter a username" required>
-        <label for="password">Password:</label>
-        <input type="password" name="password" placeholder="Enter a password" required>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Enter your email address" required>
+        </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Enter a username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Enter a password" required>
+        </div>
         <input type="submit" value="Register">
     </form>
 </main>
