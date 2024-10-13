@@ -3,7 +3,10 @@
 if ($_SESSION['role'] === 'admin'): ?>
     <main class="content">
         <div class="container">
-            <div class="stats"></div>
+            <div class="stats" style="text-align: center; margin-bottom: 15px;">
+                <h1>Stats</h1>
+                <?php echo "Total: " . $data['stats'][0] . " | In Progress: " . $data['stats'][1] . " | Completed: " . $data['stats'][2];?>
+            </div>
             <div class="sub-container">
                 <div class="tasks col-7 col-m-7">
                     <h1>Tasks</h1>
@@ -36,18 +39,24 @@ if ($_SESSION['role'] === 'admin'): ?>
                         </div>
                         <div class="create-mode">
                             <form method="post" action="./createuser" style="display:inline;">
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" placeholder="Enter your email address" required>
-                                <label for="username">Username:</label>
-                                <input type="text" name="username" placeholder="Enter a username" required>
-                                <label for="role">Role:</label>
-                                <select name="role" id="role">
-                                    <?php foreach ($data['roles'] as $role): ?>
-                                        <option value="<?php echo $role; ?>">
-                                            <?php echo $role;?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="email" placeholder="Enter your email address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username:</label>
+                                    <input type="text" name="username" placeholder="Enter a username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="role">Role:</label>
+                                    <select name="role" id="role">
+                                        <?php foreach ($data['roles'] as $role): ?>
+                                            <option value="<?php echo $role; ?>">
+                                                <?php echo $role;?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                                 <input type="submit" value="Submit">
                                 <input type="button" value="Close" onclick="toggleCreateMode();">
                             </form>
@@ -105,7 +114,7 @@ if ($_SESSION['role'] === 'admin'): ?>
                                     <div class="edit-mode" data-user-id="<?php echo $item['user_id']; ?>"><button type="submit">Save</button></div>
                                 </div>
                                 <div class="user-box" data-user-id="<?php echo $item['user_id']; ?>">
-                                    <a href="./deleteuser?id=<?=$item['user_id']?>" class="view-mode" data-user-id="<?php echo $item['user_id']; ?>">Delete</a>
+                                    <a href="./deleteuser?id=<?=$item['user_id']?>" class="view-mode" data-user-id="<?php echo $item['user_id']; ?>" onclick="return confirmNavigation(event)">Delete</a>
                                     <div class="edit-mode" data-user-id="<?php echo $item['user_id']; ?>">
                                         <button type="button" onclick="toggleEditMode(<?php echo $item['user_id']; ?>)">Close</button>
                                     </div>

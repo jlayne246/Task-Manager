@@ -6,6 +6,7 @@
     <title><?= $title ?? 'Task Management System'; ?></title>
     <link rel="stylesheet" href="css/styles.css"/>
     <script src="js/toggleAdmin.js"></script>
+    <script src="js/toggleEmployee.js"></script>
 </head>
 
 <body>

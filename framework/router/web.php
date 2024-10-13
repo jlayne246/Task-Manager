@@ -22,8 +22,13 @@ $routes['/editrole'] = ['controller' => 'AdminDashboard', 'method' => 'update', 
 $routes['/deleteuser'] = ['controller' => 'AdminDashboard', 'method' => 'delete', 'httpMethod' => 'GET'];
 $routes['/createuser'] = ['controller' => 'AdminDashboard', 'method' => 'create', 'httpMethod' => 'POST'];
 $routes['/manager'] = ['controller' => 'ManagerDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
+
 $routes['/employee'] = ['controller' => 'EmployeeDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
+$routes['/update-progress'] = ['controller' => 'EmployeeDashboard', 'method' => 'update', 'httpMethod' => 'POST'];
+$routes['/create-comment'] = ['controller' => 'EmployeeDashboard', 'method' => 'create', 'httpMethod' => 'POST'];
+
 $routes['/tasks'] = ['controller' => 'TaskManager', 'method' => 'index', 'httpMethod' => 'GET'];
+$routes['/create-task'] = ['controller' => 'TaskManager', 'method' => 'create', 'httpMethod' => 'POST'];
 
 //Route function to handle requests
 function route($path) {

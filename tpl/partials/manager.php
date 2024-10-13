@@ -1,5 +1,5 @@
 <?php if ($_SESSION['role'] === 'manager'): ?>
-    <main>
+    <main class="content">
         <p>Welcome to the manager page.</p>
     </main>
 <?php else: ?>

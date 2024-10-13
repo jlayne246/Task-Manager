@@ -19,8 +19,6 @@
     $path = trim(str_replace($separators, DIRECTORY_SEPARATOR, $path), DIRECTORY_SEPARATOR);
 
     //Routing
-
-
     if (!route($path)) {
         //If no route is defined
         header("HTTP/1.0 404 Not Found");

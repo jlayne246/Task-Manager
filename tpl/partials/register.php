@@ -1,4 +1,4 @@
-<main>
+<main class="content">
     <?php if (isset($error)): ?>
         <p style="color:red;"><?php echo $error; ?></p>
     <?php endif; ?>

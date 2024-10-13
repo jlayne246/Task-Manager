@@ -1,10 +1,8 @@
-function toggleEditMode(userId) {
+function toggleEditMode_Emp(userId) {
     console.log("toggle");
     
-    var viewElements = document.querySelectorAll('[data-user-id="' + userId + '"].view-mode');
-
-    var editElements = document.querySelectorAll('[data-user-id="' + userId + '"].edit-mode');
-
+    var viewElements = document.getElementsByClassName("view-edit-mode");
+    var editElements = document.getElementsByClassName("edit-mode");
 
     for (var i = 0; i < viewElements.length; i++) {
         viewElements[i].style.display = viewElements[i].style.display === "none" ? "block" : "none";
@@ -21,10 +19,10 @@ function toggleEditMode(userId) {
     }
 }
 
-function toggleCreateMode() {
+function toggleCreateMode_Emp() {
     console.log("toggle");
     
-    var viewElements = document.getElementsByClassName("view-btn-mode");
+    var viewElements = document.getElementsByClassName("view-create-mode");
     var createElements = document.getElementsByClassName("create-mode");
 
     for (var i = 0; i < viewElements.length; i++) {

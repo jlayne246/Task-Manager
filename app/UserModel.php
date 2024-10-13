@@ -78,6 +78,21 @@
             return $users;
         }
 
+        public function getAllEmployees() {
+            $sql = "SELECT users.user_id, users.username FROM users INNER JOIN userrole ON users.user_id = userrole.user_id WHERE userrole.role_id = 3;";
+            $result = $this->db->query($sql);
+
+            $employees = [];
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $employees[] = $row;
+                }
+            }
+
+            return $employees;
+        }
+
         public function deleteUser($id) {
             // Delete from userrole table
             $sql1 = "DELETE FROM userrole WHERE user_id = ?";
