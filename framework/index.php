@@ -1,6 +1,6 @@
 <?php
-    require_once 'autoloader.php';
-    require_once './framework/router/web.php';
+    require_once './autoloader.php';
+    require_once './router/web.php';
 
     // SessionManager::start();
     // $controllerInstance = new HomeController();
@@ -10,7 +10,7 @@
         SessionManager::start();
     }
 
-    define('APP_ROOT_DIR', 'comp3385/assignment1/400014516'); // MADE EDIT HERE; RETURN THE 2ND PARAM TO: ''
+    define('APP_ROOT_DIR', 'comp3385/assignment1/400014516/framework'); // MADE EDIT HERE; RETURN THE 2ND PARAM TO: ''
     $separators = ['/', '\\'];
 
     $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);

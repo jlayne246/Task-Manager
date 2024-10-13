@@ -7,7 +7,7 @@
 
             $data['statuses'] = $taskModel->getStatuses();
             $data["tasks"] = $taskModel->getTaskByID($task_id);
-            $data["comments"] = $commentModel->getComments($_SESSION["user"]);
+            $data["comments"] = $commentModel->getCommentsByTask($task_id);
             
             $this->handleRequest("task", isset($data) ? $data : []);
         }

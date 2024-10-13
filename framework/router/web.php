@@ -1,7 +1,4 @@
 <?php
-require_once 'app/HomeController.php';
-require_once 'app/RegisterController.php';
-require_once 'app/LoginController.php';
 
 // app\HomeController.php
 
