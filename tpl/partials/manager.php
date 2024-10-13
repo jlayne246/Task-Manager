@@ -29,8 +29,36 @@
                 </div>
             </div>
             <div class="assign-tasks col-4 col-m-4">
-                <form method="post" action="assign-task">
-
+                <h1>Assign Task</h1>
+                <form method="post" action="create-task">
+                    <input type="hidden" name="manager_id" value="<?=$_SESSION["user"]?>"/>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" name="title" id="title" size="20"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea name="description" id="description" style="height: 75px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Employee">Employee:</label>
+                        <select name="employee" id="employee">
+                            <?php foreach ($data['employees'] as $employee): ?>
+                                <optgroup>
+                                    <option value="<?php echo $employee['user_id']; ?>" <?php if ($employee['user_id'] == $item['assigned_to']) echo 'selected'; ?>>
+                                        <?php echo $employee['user_id'] . " - " . $employee['username'];?>
+                                    </option>
+                                </optgroup>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" name="date" id="date" size="20"/>
+                    </div>
+                    <div class="form-btns">
+                        <input type="submit" value="Submit" />
+                    </div>
                 </form>
             </div>
         </div>

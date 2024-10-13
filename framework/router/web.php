@@ -21,6 +21,7 @@ $routes['/createuser'] = ['controller' => 'AdminDashboard', 'method' => 'create'
 
 $routes['/manager'] = ['controller' => 'ManagerDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/view-task'] = ['controller'=> 'ViewEditTasks', 'method' => 'index', 'httpMethod' => 'GET'];
+$routes['/edit-task'] = ['controller'=> 'ViewEditTasks', 'method' => 'edit', 'httpMethod' => 'PSOT'];
 
 $routes['/employee'] = ['controller' => 'EmployeeDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/update-progress'] = ['controller' => 'EmployeeDashboard', 'method' => 'update', 'httpMethod' => 'POST'];

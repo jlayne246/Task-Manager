@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/styles.css"/>
     <script src="../js/toggleAdmin.js"></script>
     <script src="../js/toggleEmployee.js"></script>
+    <script src="../js/toggleTaskView.js"></script>
 </head>
 
 <body>

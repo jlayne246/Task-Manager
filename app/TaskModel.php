@@ -8,6 +8,14 @@
 
         }
 
+        public function editTask($title, $description, $status, $employee, $manager, $duedate, $task) {
+            $sql = "UPDATE tasks SET title = ?, description = ?, status = ?, assigned_to = ?, created_by = ?, due_date = ? WHERE task_id = ?;";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("sssiisi", $title, $description, $status, $employee, $manager, $duedate, $task);
+            return $stmt->execute();
+
+        }
+
         public function getAllTasks() {
             $sql = "SELECT title, description, status, assigned_to, created_by, due_date FROM tasks";
             $result = $this->db->query($sql);

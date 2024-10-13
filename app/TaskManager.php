@@ -21,7 +21,7 @@
                 $taskModel = new TaskModel();
                 $taskModel->createTask($title, $description, $employee, $manager, $date);
 
-                header('Location: ./tasks');
+                header('Location: ./manager');
             }
         }
     }
