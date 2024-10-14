@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 13, 2024 at 11:19 PM
+-- Generation Time: Oct 14, 2024 at 12:21 AM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   PRIMARY KEY (`task_id`),
   KEY `assigned_to` (`assigned_to`),
   KEY `created_by` (`created_by`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tasks`
@@ -102,7 +102,8 @@ INSERT INTO `tasks` (`task_id`, `title`, `description`, `status`, `assigned_to`,
 (2, 'Test Task 2', 'This is testing the DB connection. Edit 3', 'Completed', 15, 13, '2024-10-13'),
 (3, 'Task 3', 'Testing....', 'In Progress', 15, 13, '2024-10-31'),
 (4, 'Testing for No Error', 'Testing for no error', 'Pending', 18, 13, '2024-10-27'),
-(5, 'New Task', 'Test', 'Pending', 18, 13, '2024-10-20');
+(5, 'New Task', 'Test', 'Pending', 18, 13, '2024-10-20'),
+(6, 'Guinea Pig', 'Added 2', 'Completed', 18, 13, '2024-10-31');
 
 -- --------------------------------------------------------
 
@@ -127,6 +128,7 @@ INSERT INTO `userrole` (`user_id`, `role_id`) VALUES
 (20, 1),
 (13, 2),
 (19, 2),
+(21, 2),
 (15, 3),
 (18, 3);
 
@@ -143,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(25) NOT NULL,
   `password` varchar(75) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users`
@@ -155,7 +157,8 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
 (15, 'bbc', 'bbc@gmail.com', '$2y$10$H9mKyeNNtSCq8p9rqc9OFeVjXWx2/XQNeXATc5kzeHg1KLjGR0ori'),
 (18, '123', 'abcd@gmail.com', '$2y$10$g3ako0VfGi9NQ0P4G9/Tb.jwUjoU1vaJzxHMYxisZeBRMSUqTDUwW'),
 (19, 'abcde', 'abcde@gmail.com', '$2y$10$Lwh17QTEt7RlY55fGLQePexUMVwybc5TFKOV02cO2k83X2.LRiuTu'),
-(20, 'abcdef', 'abcdef@gmail.com', '$2y$10$cCUNwYfv4sH1C4g/VcMc1uzU6PPoH/hotEwDWwJtM7w1R2mvNA.Qu');
+(20, 'abcdef', 'abcdef@gmail.com', '$2y$10$cCUNwYfv4sH1C4g/VcMc1uzU6PPoH/hotEwDWwJtM7w1R2mvNA.Qu'),
+(21, 'test', 'test@hotmail.com', '$2y$10$v/V46y52ECq.sklTw48kxeWSsBAb7OQZJZYPaSUIXQs8RzSDstU7K');
 
 --
 -- Constraints for dumped tables

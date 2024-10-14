@@ -60,7 +60,7 @@
                         <select name="employee" id="employee">
                             <?php foreach ($data['employees'] as $employee): ?>
                                 <!-- <optgroup> -->
-                                    <option value="<?php echo $employee['user_id']; ?>" <?php if ($employee['user_id'] == $item['assigned_to']) echo 'selected'; ?>>
+                                    <option value="<?php echo $employee['user_id']; ?>">
                                         <?php echo $employee['user_id'] . " - " . $employee['username'];?>
                                     </option>
                                 <!-- </optgroup> -->

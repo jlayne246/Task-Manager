@@ -9,6 +9,7 @@
             $data["tasks"] = $taskModel->getTasksByManager($_SESSION["user"]);
             $data["comments"] = $commentModel->getComments($_SESSION["user"]);
             $data['employees'] = $userModel->getAllEmployees();
+            $data['filter'] = "";
 
             $this->handleRequest("manager", isset($data) ? $data : []);
         }
