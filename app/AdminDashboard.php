@@ -19,7 +19,7 @@
             $data['roles'] = $roles;
             $data['stats'] = [$taskModel->countTasks(), $taskModel->countTasksByStatus("In Progress"), $taskModel->countTasksByStatus("Completed")];
 
-            $this->handleRequest("admin", isset($data) ? $data : []);
+            $this->handleRequest("admin_dashboard", isset($data) ? $data : []);
         }
 
         public function create() {

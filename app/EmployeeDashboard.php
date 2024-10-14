@@ -8,7 +8,7 @@
             $data["tasks"] = $taskModel->getTasksByEmployee($_SESSION["user"]);
             $data["comments"] = $commentModel->getComments($_SESSION["user"]);
 
-            $this->handleRequest("employee", isset($data) ? $data : []);
+            $this->handleRequest("employee_dashboard", isset($data) ? $data : []);
         }
 
         public function update() {

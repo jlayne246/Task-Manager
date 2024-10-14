@@ -11,7 +11,7 @@
             $data['employees'] = $userModel->getAllEmployees();
             $data['filter'] = "";
 
-            $this->handleRequest("manager", isset($data) ? $data : []);
+            $this->handleRequest("manager_dashboard", isset($data) ? $data : []);
         }
 
         public function filter() {
@@ -31,7 +31,7 @@
                     $data['employees'] = $userModel->getAllEmployees();
                     $data['filter'] = "";
 
-                    $this->handleRequest("manager", isset($data) ? $data : []);
+                    $this->handleRequest("manager_dashboard", isset($data) ? $data : []);
                 } else {
                     $data["tasks"] = $taskModel->getTaskByProgress($filter, $manager);
 
@@ -43,7 +43,7 @@
                     $data['employees'] = $userModel->getAllEmployees();
                     $data['filter'] = $filter;
 
-                    $this->handleRequest("manager", isset($data) ? $data : []);
+                    $this->handleRequest("manager_dashboard", isset($data) ? $data : []);
                 }
                 
             }
