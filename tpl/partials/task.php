@@ -10,12 +10,13 @@ if ($_SESSION['role'] === 'manager'): ?>
                 <div class="box" style="width: 100%;">
                     <div class="col-3 col-m-3"></div>
                     <div class="view-task-mode col-6 col-m-6">
-                        <div class="task-box">Title: <?=$item['title']?></div>
-                        <div class="task-box">Description: <?=$item['description']?></div>
-                        <div class="task-box">Status: <?=$item['status']?></div>
-                        <div class="task-box">Assigned to: <?=$item['assigned_to']?></div>
-                        <div class="task-box">Created by: <?=$item['created_by']?></div>
-                        <div class="task-box">Comments: <br> <?php
+                        <div class="task-box"><span style="font-weight: bold;">Title:</span> <br> <span class="fields"><?=$item['title']?></span></div>
+                        <div class="task-box"><span style="font-weight: bold;">Description:</span> <br> <span class="fields"><?=$item['description']?></span></div>
+                        <div class="task-box"><span style="font-weight: bold;">Status:</span> <br> <span class="fields"><?=$item['status']?></span></div>
+                        <div class="task-box"><span style="font-weight: bold;">Assigned to:</span> <br> <span class="fields"><?=$item['assigned_to']?></span></div>
+                        <div class="task-box"><span style="font-weight: bold;">Created by:</span> <br> <span class="fields"><?=$item['created_by']?></span></div>
+                        <div class="task-box"><span style="font-weight: bold;">Comments:</span> <br> <span class="fields">
+                        <?php
                             if (array_key_exists($item['task_id'], $data['comments'])) {
                                 foreach ($data['comments'][$item['task_id']] as $comments) {
                                     echo "> \t[" . $comments['user_id'] . "]: " . $comments['comment'] . "<br>";
@@ -23,8 +24,9 @@ if ($_SESSION['role'] === 'manager'): ?>
                             } else {
                                 echo "\t N/A";
                             }
-                        ?></div>
-                        <div class="task-box">Due Date: <?=$item['due_date']?></div>
+                        ?>
+                        </span> </div>
+                        <div class="task-box"><span style="font-weight: bold;">Due Date:</span> <br> <span class="fields"><?=$item['due_date']?></span></div>
                         <div id="edit-btn">
                             <input type="button" value="Edit" onclick="toggleTaskEdit();" />
                             <input type="button" value="Back" onclick="history.back();" />

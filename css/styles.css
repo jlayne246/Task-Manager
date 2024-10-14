@@ -204,3 +204,8 @@ label {
 .errors {
     text-align: center;
 }
+
+.fields {
+    text-indent: 2em;
+    display: inline-block;
+}

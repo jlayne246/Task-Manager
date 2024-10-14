@@ -1,7 +1,6 @@
 <?php if ($_SESSION['role'] === 'manager'): ?>
     <main class="content">
         <div class="container">
-            <p>Welcome to the task manager page.</p>
             <div class="sub-container">
                 <div class="col-3 col-m-3"></div>
                 <div class="col-6 col-m-6">
@@ -42,7 +41,9 @@
                             <label for="date">Date:</label>
                             <input type="date" name="date" id="date" size="20" required/>
                         </div>
-                        <input type="submit" value="Create Task" />
+                        <div class="form-btns">
+                            <input type="submit" value="Create Task" />
+                        </div>
                     </form>
                 </div>
                 <div class="col-3 col-m-3"></div>
