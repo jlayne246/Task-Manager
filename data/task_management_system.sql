@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 14, 2024 at 12:21 AM
+-- Generation Time: Oct 14, 2024 at 12:58 AM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   PRIMARY KEY (`task_id`),
   KEY `assigned_to` (`assigned_to`),
   KEY `created_by` (`created_by`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tasks`
@@ -103,7 +103,9 @@ INSERT INTO `tasks` (`task_id`, `title`, `description`, `status`, `assigned_to`,
 (3, 'Task 3', 'Testing....', 'In Progress', 15, 13, '2024-10-31'),
 (4, 'Testing for No Error', 'Testing for no error', 'Pending', 18, 13, '2024-10-27'),
 (5, 'New Task', 'Test', 'Pending', 18, 13, '2024-10-20'),
-(6, 'Guinea Pig', 'Added 2', 'Completed', 18, 13, '2024-10-31');
+(6, 'Guinea Pig', 'Added 2', 'Completed', 18, 13, '2024-10-31'),
+(7, 'Mate', '', 'Pending', 15, 13, '2024-10-20'),
+(8, 'My First', '', 'Pending', 15, 19, '2024-10-25');
 
 -- --------------------------------------------------------
 
