@@ -14,6 +14,7 @@ $routes['/register'] = ['controller' => 'RegisterController', 'method' => 'index
 
 $routes['/login'] = ['controller' => 'LoginController', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/logout'] = ['controller' => 'LogoutController', 'method' => 'index', 'httpMethod' => 'GET'];
+
 $routes['/admin'] = ['controller' => 'AdminDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/editrole'] = ['controller' => 'AdminDashboard', 'method' => 'update', 'httpMethod' => 'POST'];
 $routes['/deleteuser'] = ['controller' => 'AdminDashboard', 'method' => 'delete', 'httpMethod' => 'GET'];
@@ -21,7 +22,8 @@ $routes['/createuser'] = ['controller' => 'AdminDashboard', 'method' => 'create'
 
 $routes['/manager'] = ['controller' => 'ManagerDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/view-task'] = ['controller'=> 'ViewEditTasks', 'method' => 'index', 'httpMethod' => 'GET'];
-$routes['/edit-task'] = ['controller'=> 'ViewEditTasks', 'method' => 'edit', 'httpMethod' => 'PSOT'];
+$routes['/edit-task'] = ['controller'=> 'ViewEditTasks', 'method' => 'edit', 'httpMethod' => 'POST'];
+$routes['/filter'] = ['controller'=> 'ManagerDashboard', 'method' => 'filter', 'httpMethod' => 'POST'];
 
 $routes['/employee'] = ['controller' => 'EmployeeDashboard', 'method' => 'index', 'httpMethod' => 'GET'];
 $routes['/update-progress'] = ['controller' => 'EmployeeDashboard', 'method' => 'update', 'httpMethod' => 'POST'];

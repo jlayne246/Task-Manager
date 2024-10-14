@@ -3,6 +3,21 @@
         <div class="sub-container">
             <div class="tasks col-8 col-m-8">
                 <h1>Tasks</h1>
+                <div class="filter" style="text-align:right; margin-bottom:15px;">
+                    <form method="post" action="./filter">
+                        <input type="hidden" name="manager" value="<?= $_SESSION['user'] ?>"/>
+                        <label for="status-filter">Filter By:</label>
+                        <select name="status-filter" id="status">
+                            <option value="">No Filter</option>
+                            <?php foreach ($data['statuses'] as $status): ?>
+                                <option value="<?php echo $status; ?>" <?php if ($status == $data['filter']) echo 'selected'; ?>>
+                                    <?php echo $status;?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="submit" value="Filter" />
+                    </form>
+                </div>
                 <div class="manager-tasks-con">
                     <!-- <div class="user-header"> -->
                     <div class="tasks-box tasks-header">Title</div>

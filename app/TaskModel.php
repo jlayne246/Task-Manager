@@ -109,6 +109,25 @@
             return $tasks;
         }
 
+        public function getTaskByProgress($progress, $manager) {
+            $sql = "SELECT task_id, title, description, status, assigned_to, created_by, due_date FROM tasks WHERE status = ? AND created_by = ?";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("si", $progress, $manager);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+
+            $tasks = [];
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $tasks[] = $row;
+                }
+            }
+
+            return $tasks;
+        }
+
         public function updateTask($userID, $task_id, $status) {
             $sql = "UPDATE tasks SET status = ? WHERE task_id = ? AND assigned_to = ?;";
             $stmt = $this->db->prepare($sql);
