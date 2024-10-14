@@ -4,17 +4,18 @@
             <div class="sub-container">
                 <div class="col-3 col-m-3"></div>
                 <div class="col-6 col-m-6">
-                <div class="errors" style="color: red;">
-                    <?php
-                        if (isset($data['error'])) {
-                            foreach ($data['error'] as $error) {
-                                echo $error . " <br> ";
-                            }
+                    <h1>Create Task</h1>
+                    <div class="errors" style="color: red;">
+                        <?php
+                            if (isset($data['error'])) {
+                                foreach ($data['error'] as $error) {
+                                    echo $error . " <br> ";
+                                }
 
-                            $data['errors'] = [];
-                        } 
-                    ?>
-                </div>
+                                $data['errors'] = [];
+                            } 
+                        ?>
+                    </div>
                     <form method="POST" action="./create-task">
                         <input type="hidden" name="manager_id" value="<?= $_SESSION["user"]?>" />
                         <div class="form-group">
