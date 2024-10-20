@@ -4,25 +4,26 @@ if ($_SESSION['role'] === 'employee'): ?>
     <main class="content">
     <div class="container">
             <div class="sub-container">
-                <div class="col-1 col-m-1"></div>
+                <div class="col-1 col-m-1 hide-mobile"></div>
                 <div class="col-10 col-m-10">
                     <h1>Tasks</h1>
                     <div class="emp-tasks-con">
                         <!-- <div class="user-header"> -->
                         <div class="tasks-box tasks-header"> Title </div>
-                        <div class="tasks-box tasks-header"> Description </div>
+                        <div class="tasks-box tasks-header hide-mobile"> Description </div>
                         <div class="tasks-box tasks-header">Status</div>
-                        <div class="tasks-box tasks-header">Assigned To</div>
-                        <div class="tasks-box tasks-header">Created By</div>
+                        <div class="tasks-box tasks-header hide-mobile">Assigned To</div>
+                        <div class="tasks-box tasks-header hide-mobile">Created By</div>
                         <div class="tasks-box tasks-header">Due Date</div>
                         <div class="tasks-box tasks-header">Update?</div>
-                        <div class="tasks-box tasks-header">Comments</div>
-                        <div class="tasks-box tasks-header">Add Comment?</div>
+                        <div class="tasks-box tasks-header hide-mobile">Comments</div>
+                        <div class="tasks-box tasks-header hide-mobile">Add Comment?</div>
+                        <div class="tasks-box tasks-header show-mobile">View?</div>
                         <!-- </div> -->
                         <?php foreach ($data['tasks'] as $item): ?>
                             <!-- <div class="user-row"> -->
                                 <div class="tasks-box"><?php echo $item['title']; ?> </div>
-                                <div class="tasks-box"><?php echo $item['description']; ?> </div>
+                                <div class="tasks-box hide-mobile"><?php echo $item['description']; ?> </div>
                                 <div class="view-edit-mode" data-task-id="<?php echo $item['task_id']; ?>">
                                     <div class="tasks-box"><?php echo $item['status']; ?> </div>
                                 </div>
@@ -38,8 +39,8 @@ if ($_SESSION['role'] === 'employee'): ?>
                                             <?php endforeach; ?>
                                         </select>
                                 </div>
-                                <div class="tasks-box"><?php echo $item['assigned_to']; ?> </div>
-                                <div class="tasks-box"><?php echo $item['created_by']; ?> </div>
+                                <div class="tasks-box hide-mobile"><?php echo $item['assigned_to']; ?> </div>
+                                <div class="tasks-box hide-mobile"><?php echo $item['created_by']; ?> </div>
                                 <div class="tasks-box"><?php echo $item['due_date']; ?> </div>
                                 <div class="tasks-box">
                                     <div class="view-edit-mode" data-task-id="<?php echo $item['task_id']; ?>">
@@ -51,8 +52,8 @@ if ($_SESSION['role'] === 'employee'): ?>
                                         </form>
                                     </div>
                                 </div>
-                                <div class="view-create-mode" data-task-id="<?php echo $item['task_id']; ?>">
-                                    <div class="tasks-box">
+                                <div class="view-create-mode hide-mobile" data-task-id="<?php echo $item['task_id']; ?>">
+                                    <div class="tasks-box hide-mobile">
                                         <?php
                                             if (array_key_exists($item['task_id'], $data['comments'])) {
                                                 foreach ($data['comments'][$item['task_id']] as $comments) {
@@ -65,25 +66,28 @@ if ($_SESSION['role'] === 'employee'): ?>
                                         ?>
                                     </div>
                                 </div>
-                                <div class="create-mode" data-task-id="<?php echo $item['task_id']; ?>">
+                                <div class="create-mode hide-mobile" data-task-id="<?php echo $item['task_id']; ?>">
                                     <form method="post" action="./create-comment">
                                         <input type="hidden" name="task" value="<?=$item['task_id']?>"/>
                                         <input type="hidden" name="user" value="<?=$_SESSION["user"]?>"/>
                                         <textarea name="comment"></textarea>
                                 </div>
-                                <div class="view-create-mode" data-task-id="<?php echo $item['task_id']; ?>">
+                                <div class="view-create-mode hide-mobile" data-task-id="<?php echo $item['task_id']; ?>">
                                     <div class="tasks-box"><a href="javascript:void(0);" onclick="toggleCreateMode_Emp(<?php echo $item['task_id']; ?>)">Add Comment</a> </div>
                                 </div>
-                                <div class="create-mode" data-task-id="<?php echo $item['task_id']; ?>">
+                                <div class="create-mode hide-mobile" data-task-id="<?php echo $item['task_id']; ?>">
                                         <input type="submit" value="Comment" />
                                         <input type="button" onclick="toggleCreateMode_Emp(<?php echo $item['task_id']; ?>)" value="Cancel" />
                                     </form>
+                                </div>
+                                <div class="tasks-box show-mobile">
+                                    <a href="./view-task?task=<?=$item['task_id']?>">View</a>
                                 </div>
                             <!-- </div> -->
                         <?php endforeach; ?>
                     </div>
                 </div>
-                <div class="col-1 col-m-1">
+                <div class="col-1 col-m-1 hide-mobile">
                 </div>
             </div>
         </div>

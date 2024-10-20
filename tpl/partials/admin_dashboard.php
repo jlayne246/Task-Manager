@@ -14,19 +14,23 @@ if ($_SESSION['role'] === 'admin'): ?>
                         <!-- <div class="user-header"> -->
                         <div class="tasks-box tasks-header"> Title </div>
                         <div class="tasks-box tasks-header"> Description </div>
-                        <div class="tasks-box tasks-header">Status</div>
-                        <div class="tasks-box tasks-header">Assigned To</div>
-                        <div class="tasks-box tasks-header">Created By</div>
+                        <div class="tasks-box tasks-header hide-mobile">Status</div>
+                        <div class="tasks-box tasks-header hide-mobile">Assigned To</div>
+                        <div class="tasks-box tasks-header hide-mobile">Created By</div>
                         <div class="tasks-box tasks-header">Due Date</div>
+                        <div class="tasks-box tasks-header show-mobile">View</div>
                         <!-- </div> -->
                         <?php foreach ($data['tasks'] as $item): ?>
                             <!-- <div class="user-row"> -->
                                 <div class="tasks-box"><?php echo $item['title']; ?> </div>
                                 <div class="tasks-box"><?php echo $item['description']; ?> </div>
-                                <div class="tasks-box"><?php echo $item['status']; ?> </div>
-                                <div class="tasks-box"><?php echo $item['assigned_to']; ?> </div>
-                                <div class="tasks-box"><?php echo $item['created_by']; ?> </div>
+                                <div class="tasks-box hide-mobile"><?php echo $item['status']; ?> </div>
+                                <div class="tasks-box hide-mobile"><?php echo $item['assigned_to']; ?> </div>
+                                <div class="tasks-box hide-mobile"><?php echo $item['created_by']; ?> </div>
                                 <div class="tasks-box"><?php echo $item['due_date']; ?> </div>
+                                <div class="tasks-box show-mobile">
+                                    <a href="./view-task?task=<?=$item['task_id']?>">View</a>
+                                </div>
                             <!-- </div> -->
                         <?php endforeach; ?>
                     </div>

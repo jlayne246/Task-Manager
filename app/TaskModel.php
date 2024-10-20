@@ -17,7 +17,7 @@
         }
 
         public function getAllTasks() {
-            $sql = "SELECT title, description, status, assigned_to, created_by, due_date FROM tasks";
+            $sql = "SELECT task_id, title, description, status, assigned_to, created_by, due_date FROM tasks";
             $result = $this->db->query($sql);
 
             $tasks = [];

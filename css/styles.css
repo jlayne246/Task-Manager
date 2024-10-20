@@ -16,11 +16,122 @@
     width: 100%;
 }
 
+.users-con {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1fr;
+    /* float: right; */
+
+    gap: 10px; 
+}
+
+.user-box {
+    /* padding: 5px; */
+}
+
+.user-header {
+    font-weight: bold;
+}
+
+.tasks {
+    /* border-right: 1px solid black; */
+}
+
+.tasks-con {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr; 
+
+    gap: 10px; 
+}
+
+.emp-tasks-con {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr; 
+
+    gap: 10px; 
+}
+
+.manager-tasks-con {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr; 
+
+    gap: 10px; 
+}
+
+.tasks-box {
+    /* padding: 5px; */
+}
+
+.tasks-header {
+    font-weight: bold;
+}
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center; 
+    align-items: center;
+}
+
+.edit-mode, .create-mode, .edit-task-mode {
+    display: none;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    max-width: 100%;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="button"], button, input[type="date"], input[type = "submit"], textarea, option, optgroup, select {
+    font-size:1rem;
+}
+
+.createUser {
+    text-align:center;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.createUser > div > form > .form-group {
+    max-width: 100%;;
+}
+
+label {
+    text-align: left;
+}
+
+#edit-btn, .form-btns {
+    text-align: center;
+}
+
+.errors {
+    text-align: center;
+}
+
+.fields {
+    padding-left: 2em;
+    display: inline-block;
+}
+
+.hide-mobile {
+    display: none;
+}
+
+.show-mobile {
+    display: block;
+}
+
 /*For Tablet*/
-@media only screen and (min-width: 600px) {
-		[class*="col-"] {
-        float: left;
+@media only screen and (min-width: 600px) and (max-width: 769px) {
+	[class*="col-"] {
+        /* float: left; */
         padding: 15px;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
     }
 
     .col-m-1 {width: 8.33%;}
@@ -35,10 +146,131 @@
     .col-m-10 {width: 83.33%;}
     .col-m-11 {width: 91.66%;}
     .col-m-12 {width: 100%;}
+
+    .users-con {
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1fr;
+        /* float: right; */
+    
+        gap: 10px; 
+    }
+    
+    .user-box {
+        /* padding: 5px; */
+    }
+    
+    .user-header {
+        font-weight: bold;
+    }
+    
+    .tasks {
+        /* border-right: 1px solid black; */
+    }
+    
+    .tasks-con {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr 1fr; 
+    
+        gap: 10px; 
+    }
+    
+    .emp-tasks-con {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr 1fr 1fr; 
+    
+        gap: 10px; 
+    }
+    
+    .manager-tasks-con {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr 1fr; 
+    
+        gap: 10px; 
+    }
+    
+    .tasks-box {
+        /* padding: 5px; */
+    }
+    
+    .tasks-header {
+        font-weight: bold;
+    }
+    
+    .sub-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center; 
+        align-items: center;
+    }
+    
+    .edit-mode, .create-mode, .edit-task-mode {
+        display: none;
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        max-width: 100%;
+    }
+    
+    input[type="text"], input[type="email"], input[type="password"], input[type="button"], button, input[type="date"], input[type = "submit"], textarea, option, optgroup, select {
+        font-size:1rem;
+    }
+    
+    .createUser {
+        text-align:center;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+    
+    .createUser > div > form > .form-group {
+        max-width: 100%;;
+    }
+    
+    label {
+        text-align: left;
+    }
+    
+    #edit-btn, .form-btns {
+        text-align: center;
+    }
+    
+    .errors {
+        text-align: center;
+    }
+    
+    .fields {
+        padding-left: 2em;
+        display: inline-block;
+    }
+    
+    .hide-mobile {
+        display: none;
+    }
+    
+    .show-mobile {
+        display: block;
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .box {
+        max-width: 100%;
+    }
+
+    .task-box {
+        width: 100%;
+    }
 }
 
 /*For PC*/
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
     [class*="col-"] {
         float: left;
         padding: 15px;
@@ -56,6 +288,113 @@
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+
+    .show-mobile {
+        display: none;
+    }
+
+    .hide-mobile {
+        display: block;
+    }
+
+    .users-con {
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1fr;
+        /* float: right; */
+    
+        gap: 10px; 
+    }
+    
+    .user-box {
+        /* padding: 5px; */
+    }
+    
+    .user-header {
+        font-weight: bold;
+    }
+    
+    .tasks {
+        border-right: 1px solid black;
+    }
+    
+    .tasks-con {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr; 
+    
+        gap: 10px; 
+    }
+    
+    .emp-tasks-con {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    
+        gap: 10px; 
+    }
+    
+    .manager-tasks-con {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr 1fr; 
+    
+        gap: 10px; 
+    }
+    
+    .tasks-box {
+        /* padding: 5px; */
+    }
+    
+    .tasks-header {
+        font-weight: bold;
+    }
+    
+    .sub-container {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+    }
+    
+    .edit-mode, .create-mode, .edit-task-mode {
+        display: none;
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        max-width: 100%;
+    }
+    
+    input[type="text"], input[type="email"], input[type="password"], input[type="button"], button, input[type="date"], input[type = "submit"], textarea, option, optgroup, select {
+        font-size:1rem;
+    }
+    
+    .createUser {
+        text-align:center;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+    
+    .createUser > div > form > .form-group {
+        max-width: 100%;;
+    }
+    
+    label {
+        text-align: left;
+    }
+    
+    #edit-btn, .form-btns {
+        text-align: center;
+    }
+    
+    .errors {
+        text-align: center;
+    }
+    
+    .fields {
+        padding-left: 2em;
+        display: inline-block;
+    }
 }
 
 /*Set base document fonts and backgrounds here*/
@@ -107,105 +446,10 @@ nav > ul > li > a {
     background-color: #111;
   }
 
+/* Headings */
+
 h1 {
     font-size: 1.25em;
     text-align: center;
 }
 
-.users-con {
-    display: grid;
-    grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1fr;
-    /* float: right; */
-
-    gap: 10px; 
-}
-
-.user-box {
-    /* padding: 5px; */
-}
-
-.user-header {
-    font-weight: bold;
-}
-
-.tasks {
-    border-right: 1px solid black;
-}
-
-.tasks-con {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr; 
-
-    gap: 10px; 
-}
-
-.emp-tasks-con {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
-
-    gap: 10px; 
-}
-
-.manager-tasks-con {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr 1fr; 
-
-    gap: 10px; 
-}
-
-.tasks-box {
-    /* padding: 5px; */
-}
-
-.tasks-header {
-    font-weight: bold;
-}
-
-.sub-container {
-    display: flex;
-    width: 100%;
-}
-
-.edit-mode, .create-mode, .edit-task-mode {
-    display: none;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-    max-width: 100%;
-}
-
-input[type="text"], input[type="email"], input[type="password"], input[type="button"], button, input[type="date"], input[type = "submit"], textarea, option, optgroup, select {
-    font-size:1rem;
-}
-
-.createUser {
-    text-align:center;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-}
-
-.createUser > div > form > .form-group {
-    max-width: 100%;;
-}
-
-label {
-    text-align: left;
-}
-
-#edit-btn, .form-btns {
-    text-align: center;
-}
-
-.errors {
-    text-align: center;
-}
-
-.fields {
-    text-indent: 2em;
-    display: inline-block;
-}
