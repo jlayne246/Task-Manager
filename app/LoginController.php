@@ -2,7 +2,7 @@
     // require_once 'UserModel.php';
     class LoginController extends Controller {
         public function index() {
-            SessionManager::start();
+            // SessionManager::start();
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $email = $_POST['email'];
@@ -11,6 +11,8 @@
                 $user = new UserModel();
                 $position = new UserRoleModel();
                 $validator = new Validator();
+                // $auth = new Authentication();
+                $auth = $_SESSION['auth'];
 
                 $data['error'] = [];
                 $validate = $validator->validateLogin($email, $password);;
@@ -25,6 +27,7 @@
                         SessionManager::setUser($id, $role, true);
                         // SessionManager::set('role', $role);
                         setcookie("logged_out", "", time() - 3600, "/");
+                        $auth->login($_SESSION['role']);
 
                         header("Location: ./{$role}");
                         exit();

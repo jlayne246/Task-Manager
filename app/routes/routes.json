@@ -1,0 +1,111 @@
+{
+  "/": {
+    "controller": "HomeController",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": ""
+  },
+  "/home": {
+    "controller": "HomeController",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": ""
+  },
+  "/register": {
+    "controller": "RegisterController",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": ""
+  },
+  "/login": {
+    "controller": "LoginController",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": ""
+  },
+  "/logout": {
+    "controller": "LogoutController",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": ""
+  },
+  "/admin": {
+    "controller": "AdminDashboard",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": "admin"
+  },
+  "/editrole": {
+    "controller": "AdminDashboard",
+    "method": "update",
+    "httpMethod": "POST",
+    "access": "admin"
+  },
+  "/deleteuser": {
+    "controller": "AdminDashboard",
+    "method": "delete",
+    "httpMethod": "GET",
+    "access": "admin"
+  },
+  "/createuser": {
+    "controller": "AdminDashboard",
+    "method": "create",
+    "httpMethod": "POST",
+    "access": "admin"
+  },
+  "/manager": {
+    "controller": "ManagerDashboard",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": "manager"
+  },
+  "/view-task": {
+    "controller": "ViewEditTasks",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": ""
+  },
+  "/edit-task": {
+    "controller": "ViewEditTasks",
+    "method": "edit",
+    "httpMethod": "POST",
+    "access": "manager"
+  },
+  "/filter": {
+    "controller": "ManagerDashboard",
+    "method": "filter",
+    "httpMethod": "POST",
+    "access": "manager"
+  },
+  "/employee": {
+    "controller": "EmployeeDashboard",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": "employee"
+  },
+  "/update-progress": {
+    "controller": "EmployeeDashboard",
+    "method": "update",
+    "httpMethod": "POST",
+    "access": ""
+  },
+  "/create-comment": {
+    "controller": "EmployeeDashboard",
+    "method": "create",
+    "httpMethod": "POST",
+    "access": "employee"
+  },
+  "/tasks": {
+    "controller": "TaskManager",
+    "method": "index",
+    "httpMethod": "GET",
+    "access": "manager"
+  },
+  "/create-task": {
+    "controller": "TaskManager",
+    "method": "create",
+    "httpMethod": "POST",
+    "access": ""
+  }
+}
+  

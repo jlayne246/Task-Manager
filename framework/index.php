@@ -2,9 +2,19 @@
     require_once './autoloader.php';
     require_once './router/web.php';
 
-    // SessionManager::start();
+    SessionManager::start();
     // $controllerInstance = new HomeController();
     // $controllerInstance->index();
+
+    if (!isset($_SESSION['auth'])) {
+        $_SESSION['auth'] = new Authentication();
+    }
+    
+    $auth = $_SESSION['auth'];
+
+    $router = new Router($auth);
+
+    $router->loadRoutesFromConfig('../app/routes/routes.json');
 
     if (!isset($_COOKIE['logged_out'])) {
         SessionManager::start();
@@ -19,9 +29,16 @@
     $path = trim(str_replace($separators, DIRECTORY_SEPARATOR, $path), DIRECTORY_SEPARATOR);
 
     //Routing
-    if (!route($path)) {
-        //If no route is defined
-        header("HTTP/1.0 404 Not Found");
-        echo json_encode(["error" => "404 $path Not Found"]);
-    }
+    // if (!route($path)) {
+    //     //If no route is defined
+    //     header("HTTP/1.0 404 Not Found");
+    //     echo json_encode(["error" => "404 $path Not Found"]);
+    // }
+
+    $separators = ['/', '\\'];
+    $path = '/' . $path;
+
+    // print_r("Path: " . $path);
+
+    $router->dispatch($path, $_SERVER['REQUEST_METHOD']);
 ?>

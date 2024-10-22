@@ -2,6 +2,9 @@
     // require_once 'framework/Controller.php';
     class LogoutController extends Controller {
         public function index(){
+            $auth = $_SESSION['auth'];
+            $auth->logout();
+            
             session_unset();
             SessionManager::destroy();
 
